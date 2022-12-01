@@ -8,7 +8,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <script src="https://kit.fontawesome.com/3d2eda7c37.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/3d2eda7c37.js" async crossorigin="anonymous"></script>
       </Head>
       <body className="overflow-x-hidden antialiased">
         <Main />
