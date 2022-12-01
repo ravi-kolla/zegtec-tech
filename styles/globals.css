@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white {
+  @apply pt-0 md:pt-0;
+}
+
+@font-face {
+font-family: MintageRegular-51Knx;
+src: url('../asset/mintage-font/MintageRegular-51Knx.ttf');
+font-style: normal;
+}
+@font-face {
+font-family: 'DM Sans', sans-serif;
+src: url('../asset/DM_Sans/DMSans-Regular.ttf');
+src: url('../asset/DM_Sans/DMSans-Bold.ttf');
+font-style: normal;
+}
+.lilac-color {
+  color: #E2B8E0;
+}
+.ink-color {
+  color: #333333;
+}
+.lemon-color {
+  color: #F8EA65;
+}
+.cloud-color {
+  color: #DAE0F2;
+}
+.eggshell-color {
+  color: #F6F5F0;
+}
+.white-color {
+  color: #ffffff;
+}
+h2 {
+  font-family: MintageRegular-51Knx;
+  font-size:60px;
+  font-weight: 400;
+}
+
+p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+.header{
+  font-family: MintageRegular-51Knx;
+  font-weight: 400;
+}
+.sub-header{
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+.section-bg {
+  background-image: url('/bg-1.jpg');
+  z-index:-1;
+  background-size: cover;
+}

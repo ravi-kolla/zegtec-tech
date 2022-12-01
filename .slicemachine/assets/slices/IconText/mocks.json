@@ -1,0 +1,21 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {
+        "iconname": "farther",
+        "heading": "means",
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Esse non officia ex qui Lorem sint irure ea.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "primary": {},
+    "slice_type": "icon_text"
+  }
+]
