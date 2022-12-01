@@ -18,7 +18,7 @@ const ContactUs = ({slice}) => {
  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
  const [showFailureMessage, setShowFailureMessage] = useState(false);
 
- // Validation check method
+ // Validation check methods
  const handleValidation = () => {
 
    let tempErrors = {};
