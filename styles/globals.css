@@ -35,6 +35,31 @@ font-style: normal;
 .white-color {
   color: #ffffff;
 }
+.bg-lilac-color {
+  background-color: #E2B8E0;
+}
+.bg-dark-lilac-color {
+  background-color: #dc8dd8;
+}
+.bg-ink-color {
+  background-color: #333333;
+}
+.bg-lemon-color {
+  background-color: #F8EA65;
+}
+.bg-cloud-color {
+  background-color: #DAE0F2;
+}
+.bg-eggshell-color {
+  background-color: #F6F5F0;
+}
+.bg-white-color {
+  background-color: #ffffff;
+}
+.sh-lilac {
+    --tw-shadow-color: #E2B8E0;
+    --tw-shadow: var(--tw-shadow-colored)
+}
 h2 {
   font-family: MintageRegular-51Knx;
   font-size:60px;

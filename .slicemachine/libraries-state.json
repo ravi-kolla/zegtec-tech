@@ -1,6 +1,56 @@
 {
   "slices": {
     "components": {
+      "contact_us": {
+        "library": "slices",
+        "id": "contact_us",
+        "name": "ContactUs",
+        "description": "ContactUs",
+        "model": {
+          "id": "contact_us",
+          "type": "SharedSlice",
+          "name": "ContactUs",
+          "description": "ContactUs",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ContactUs",
+              "primary": {
+                "header": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Header",
+                    "placeholder": "Send a message"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "header": "separate"
+            },
+            "slice_type": "contact_us"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "hero": {
         "library": "slices",
         "id": "hero",
@@ -324,6 +374,13 @@
                       "height": 1200
                     },
                     "thumbnails": []
+                  }
+                },
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
                   }
                 },
                 "text": {
@@ -758,6 +815,97 @@
             "height": 424
           }
         }
+      },
+      "user_profile": {
+        "library": "slices",
+        "id": "user_profile",
+        "name": "UserProfile",
+        "description": "UserProfile",
+        "model": {
+          "id": "user_profile",
+          "type": "SharedSlice",
+          "name": "UserProfile",
+          "description": "UserProfile",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "UserProfile",
+              "primary": {},
+              "items": {
+                "profile_picture": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Profile Picture",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "name": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Name",
+                    "placeholder": ""
+                  }
+                },
+                "role": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Role",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "profile_picture": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e"
+                },
+                "name": "east",
+                "role": "prove",
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "text": "Do commodo veniam nostrud ea pariatur ipsum incididunt et commodo minim commodo consectetur enim fugiat. Anim nisi quis in duis sint.",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "primary": {},
+            "slice_type": "user_profile"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
       }
     }
   }

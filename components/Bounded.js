@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 export const Bounded = ({
   as: Comp = "div",
-  yPadding = "base",
+  yPadding = "sm",
   collapsible = true,
   className,
   children,

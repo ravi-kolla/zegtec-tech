@@ -33,6 +33,13 @@
             "thumbnails": []
           }
         },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {

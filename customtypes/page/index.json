@@ -54,6 +54,12 @@
             },
             "icon_text": {
               "type": "SharedSlice"
+            },
+            "contact_us": {
+              "type": "SharedSlice"
+            },
+            "user_profile": {
+              "type": "SharedSlice"
             }
           }
         }

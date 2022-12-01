@@ -10,7 +10,8 @@ const ImageCard = ({ item }) => {
   const image = item.image;
 
   return (
-    <li className="grid gap-8">
+    <div class="flex justify-center">
+    <div className="rounded-lg shadow-lg bg-white max-w-sm">
       {prismicH.isFilled.image(image) && (
         <div className="bg-gray-100">
           <ConditionalWrap
@@ -21,21 +22,19 @@ const ImageCard = ({ item }) => {
               </PrismicLink>
             )}
           >
-            <PrismicNextImage field={image} sizes="100vw" className="w-full" />
+            <PrismicNextImage field={image} className="rounded-t-lg w-full" />
           </ConditionalWrap>
         </div>
       )}
-      <div className="leading-relaxed">
-        <PrismicRichText field={item.text} />
+      <div class="p-6">
+        <h5 class="lilac-color text-xl font-medium mb-2">{item.title}</h5>
+        <PrismicRichText field={item.text} className="text-gray-700 text-base mb-4" />
+        {prismicH.isFilled.link(item.buttonLink) && (
+          <button type="button" className="inline-block px-6 py-2.5 bg-lilac-color text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-dark-lilac-color hover:shadow-lg focus:bg-dark-lilac-color focus:shadow-lg focus:outline-none focus:ring-0 active:bg-dark-lilac-color active:shadow-lg transition duration-150 ease-in-out">{item.buttonText || "More Info"}</button>
+        )}
       </div>
-      {prismicH.isFilled.link(item.buttonLink) && (
-        <div>
-          <PrismicLink field={item.buttonLink} className="font-semibold">
-            {item.buttonText || "More Info"}
-          </PrismicLink>
-        </div>
-      )}
-    </li>
+    </div>
+    </div>
   );
 };
 
@@ -48,11 +47,11 @@ const ImageCards = ({ slice }) => {
             <PrismicText field={slice.primary.heading} />
           </Heading>
         )}
-        <ul className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
           {slice.items.map((item) => (
             <ImageCard key={item.image.url} item={item} />
           ))}
-        </ul>
+        </div>
       </div>
     </Bounded>
   );

@@ -86,6 +86,16 @@
       "default": {
         "primary": {}
       }
+    },
+    "ContactUs": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "UserProfile": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

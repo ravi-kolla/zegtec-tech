@@ -96,7 +96,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice | IconTextSlice | ContactUsSlice | UserProfileSlice;
 /**
  * Page document from Prismic
  *
@@ -132,6 +132,45 @@ interface SettingsDocumentData {
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 export type AllDocumentTypes = NavigationDocument | PageDocument | SettingsDocument;
+/**
+ * Primary content in ContactUs → Primary
+ *
+ */
+interface ContactUsSliceDefaultPrimary {
+    /**
+     * Header field in *ContactUs → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: Send a message
+     * - **API ID Path**: contact_us.primary.header
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    header: prismicT.KeyTextField;
+}
+/**
+ * Default variation for ContactUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ContactUs`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContactUsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ContactUsSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *ContactUs*
+ *
+ */
+type ContactUsSliceVariation = ContactUsSliceDefault;
+/**
+ * ContactUs Shared Slice
+ *
+ * - **API ID**: `contact_us`
+ * - **Description**: `ContactUs`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContactUsSlice = prismicT.SharedSlice<"contact_us", ContactUsSliceVariation>;
 /**
  * Primary content in Hero → Primary
  *
@@ -355,6 +394,16 @@ export interface ImageCardsSliceDefaultItem {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Title field in *ImageCards → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: image_cards.items[].title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
     /**
      * Text field in *ImageCards → Items*
      *
@@ -626,11 +675,80 @@ type TextWithImageSliceVariation = TextWithImageSliceDefault | TextWithImageSlic
  *
  */
 export type TextWithImageSlice = prismicT.SharedSlice<"text_with_image", TextWithImageSliceVariation>;
+/**
+ * Item in UserProfile → Items
+ *
+ */
+export interface UserProfileSliceDefaultItem {
+    /**
+     * Profile Picture field in *UserProfile → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: user_profile.items[].profile_picture
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    profile_picture: prismicT.ImageField<never>;
+    /**
+     * Name field in *UserProfile → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: user_profile.items[].name
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    name: prismicT.KeyTextField;
+    /**
+     * Role field in *UserProfile → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: user_profile.items[].role
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    role: prismicT.KeyTextField;
+    /**
+     * Description field in *UserProfile → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: user_profile.items[].description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for UserProfile Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `UserProfile`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type UserProfileSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<UserProfileSliceDefaultItem>>;
+/**
+ * Slice variation for *UserProfile*
+ *
+ */
+type UserProfileSliceVariation = UserProfileSliceDefault;
+/**
+ * UserProfile Shared Slice
+ *
+ * - **API ID**: `user_profile`
+ * - **Description**: `UserProfile`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type UserProfileSlice = prismicT.SharedSlice<"user_profile", UserProfileSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice };
     }
 }
