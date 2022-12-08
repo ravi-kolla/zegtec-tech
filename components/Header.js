@@ -10,11 +10,11 @@ export const Header = ({ navigation, settings }) => {
 
   return (
     <>
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 mb-3">
-      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+    <nav className="sticky top-0 z-50 bg-white relative flex flex-wrap items-center justify-between px-2 py-3 shadow-md">
+      <div className="w-full px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-          <PrismicLink href="/" className="text-xl font-semibold tracking-tight">
-            <PrismicText field={settings.data.siteTitle} />
+          <PrismicLink href="/" className="text-xl font-semibold tracking-tight max-h-52">
+            <img className="zegtec-logo" src={navigation.data.logo.url} alt={navigation.data.logo.alt} />
           </PrismicLink>
           <button
             className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"

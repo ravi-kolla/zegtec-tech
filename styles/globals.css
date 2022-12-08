@@ -60,6 +60,10 @@ font-style: normal;
     --tw-shadow-color: #E2B8E0;
     --tw-shadow: var(--tw-shadow-colored)
 }
+.zegtec-logo {
+  width: 250px;
+  height: 50px;
+}
 h2 {
   font-family: MintageRegular-51Knx;
   font-size:60px;
