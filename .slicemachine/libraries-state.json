@@ -906,6 +906,114 @@
           "extension": "js"
         },
         "screenshotPaths": {}
+      },
+      "video": {
+        "library": "slices",
+        "id": "video",
+        "name": "Video",
+        "description": "Video",
+        "model": {
+          "id": "video",
+          "type": "SharedSlice",
+          "name": "Video",
+          "description": "Video",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Video",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading2"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                },
+                "video": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Video",
+                    "placeholder": "",
+                    "select": "media"
+                  }
+                },
+                "button": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Button",
+                    "placeholder": "",
+                    "select": null
+                  }
+                },
+                "button_text": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Button Text",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading2",
+                  "text": "Character",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Consectetur do qui veniam deserunt occaecat ullamco occaecat laboris aliqua. Cillum id proident amet reprehenderit minim irure dolor velit enim qui aliqua.",
+                  "spans": []
+                }
+              ],
+              "video": {
+                "link_type": "Media",
+                "name": "mock",
+                "kind": "image",
+                "url": "https://source.unsplash.com/random",
+                "size": "10kB"
+              },
+              "button": {
+                "link_type": "Web",
+                "url": "https://prismic.io"
+              },
+              "button_text": "closely"
+            },
+            "slice_type": "video"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
       }
     }
   }

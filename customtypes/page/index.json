@@ -60,6 +60,9 @@
             },
             "user_profile": {
               "type": "SharedSlice"
+            },
+            "video": {
+              "type": "SharedSlice"
             }
           }
         }

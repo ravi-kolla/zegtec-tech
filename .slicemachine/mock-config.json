@@ -96,6 +96,18 @@
       "default": {
         "primary": {}
       }
+    },
+    "Video": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   },
   "_cts": {

@@ -69,7 +69,11 @@ h2 {
   font-size:60px;
   font-weight: 400;
 }
-
+@media only screen and (max-width: 767px) {
+.mobile-h2 {
+  font-size:36px;
+}
+}
 p {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
@@ -82,8 +86,46 @@ p {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
 }
+.bold {
+  font-weight: 900;
+}
 .section-bg {
   background-image: url('/bg-1.jpg');
   z-index:-1;
   background-size: cover;
+}
+
+.video-docker video {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.video-docker::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.video-content {
+  z-index: 2;
+}
+@media only screen and (max-width: 767px) {
+  .video-container-height{
+    height: 274px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .video-container-height{
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .video-container-height{
+    height: 550px;
+  }
 }
