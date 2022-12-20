@@ -244,13 +244,14 @@ p {
 .left-arrow {
     left: 24px;
 }
-
 .right-arrow {
     right: 24px;
 }
-
-@media (hover: none) and (pointer: coarse) {
-    .left-arrow, .right-arrow {
-        display: none;
-    }
+@media only screen and (max-width: 767px) {
+  .left-arrow {
+      left: 12px;
+  }
+  .right-arrow {
+      right: 12px;
+  }
 }
