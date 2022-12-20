@@ -5,7 +5,7 @@ const Video = ({ slice }) => (
   <section>
     <div aria-label="Background Image" class="relative mb-2 video-container-height" id="image-video" role="img">
     <div class="video-docker absolute bottom-0 left-0 w-full h-full overflow-hidden">
-    <video autoplay="autoplay" class="absolute" id="bgvid" loop="loop" muted="muted" playsinline="inline">
+    <video autoplay="autoPlay" class="absolute" id="bgvid" loop="loop" muted="muted" playsinline="inline">
         <source data-src={slice.primary.video.url} type="video/mp4" src={slice.primary.video.url} />
     </video>
     </div>
