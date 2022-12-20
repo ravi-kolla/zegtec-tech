@@ -1,6 +1,150 @@
 {
   "slices": {
     "components": {
+      "card_carousel": {
+        "library": "slices",
+        "id": "card_carousel",
+        "name": "CardCarousel",
+        "description": "CardCarousel",
+        "model": {
+          "id": "card_carousel",
+          "type": "SharedSlice",
+          "name": "CardCarousel",
+          "description": "CardCarousel",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "CardCarousel",
+              "primary": {},
+              "items": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "heading": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Heading",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6"
+                },
+                "heading": "would",
+                "description": "lying"
+              }
+            ],
+            "primary": {},
+            "slice_type": "card_carousel"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "clients": {
+        "library": "slices",
+        "id": "clients",
+        "name": "Clients",
+        "description": "Clients",
+        "model": {
+          "id": "clients",
+          "type": "SharedSlice",
+          "name": "Clients",
+          "description": "Clients",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Clients",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Client Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468"
+                }
+              }
+            ],
+            "primary": {
+              "title": "felt"
+            },
+            "slice_type": "clients"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "contact_us": {
         "library": "slices",
         "id": "contact_us",
@@ -534,6 +678,106 @@
             "height": 392
           }
         }
+      },
+      "services_carousel": {
+        "library": "slices",
+        "id": "services_carousel",
+        "name": "ServicesCarousel",
+        "description": "ServicesCarousel",
+        "model": {
+          "id": "services_carousel",
+          "type": "SharedSlice",
+          "name": "ServicesCarousel",
+          "description": "ServicesCarousel",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ServicesCarousel",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
+                }
+              },
+              "items": {
+                "iconname": {
+                  "type": "Text",
+                  "config": {
+                    "label": "IconName",
+                    "placeholder": ""
+                  }
+                },
+                "servicename": {
+                  "type": "Text",
+                  "config": {
+                    "label": "ServiceName",
+                    "placeholder": ""
+                  }
+                },
+                "servicedescription": {
+                  "type": "Text",
+                  "config": {
+                    "label": "ServiceDescription",
+                    "placeholder": ""
+                  }
+                },
+                "serviceimage": {
+                  "type": "Image",
+                  "config": {
+                    "label": "ServiceImage",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "iconname": "drop",
+                "servicename": "provide",
+                "servicedescription": "dropped",
+                "serviceimage": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72"
+                }
+              }
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Wrapped",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "services_carousel"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
       },
       "text": {
         "library": "slices",

@@ -63,6 +63,15 @@
             },
             "video": {
               "type": "SharedSlice"
+            },
+            "card_carousel": {
+              "type": "SharedSlice"
+            },
+            "clients": {
+              "type": "SharedSlice"
+            },
+            "services_carousel": {
+              "type": "SharedSlice"
             }
           }
         }

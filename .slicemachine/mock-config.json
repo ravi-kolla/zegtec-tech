@@ -108,6 +108,23 @@
           }
         }
       }
+    },
+    "CardCarousel": {
+      "default": {
+        "items": {},
+        "primary": {}
+      }
+    },
+    "Clients": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "ServicesCarousel": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {

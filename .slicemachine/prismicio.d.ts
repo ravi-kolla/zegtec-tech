@@ -6,67 +6,6 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Navigation documents */
-interface NavigationDocumentData {
-    /**
-     * logo field in *Navigation*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: navigation.logo
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    logo: prismicT.ImageField<never>;
-    /**
-     * Links field in *Navigation*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: navigation.links[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    links: prismicT.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
-}
-/**
- * Item in Navigation → Links
- *
- */
-export interface NavigationDocumentDataLinksItem {
-    /**
-     * Label field in *Navigation → Links*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: Optional - Label for the link
-     * - **API ID Path**: navigation.links[].label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    label: prismicT.TitleField;
-    /**
-     * Link field in *Navigation → Links*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: Link for navigation item
-     * - **API ID Path**: navigation.links[].link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    link: prismicT.LinkField;
-}
-/**
- * Navigation document from Prismic
- *
- * - **API ID**: `navigation`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type NavigationDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NavigationDocumentData>, "navigation", Lang>;
 /** Content for Page documents */
 interface PageDocumentData {
     /**
@@ -107,7 +46,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice | IconTextSlice | ContactUsSlice | UserProfileSlice | VideoSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice | IconTextSlice | ContactUsSlice | UserProfileSlice | VideoSlice | CardCarouselSlice | ClientsSlice;
 /**
  * Page document from Prismic
  *
@@ -142,7 +81,121 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = NavigationDocument | PageDocument | SettingsDocument;
+export type AllDocumentTypes = PageDocument | SettingsDocument;
+/**
+ * Item in CardCarousel → Items
+ *
+ */
+export interface CardCarouselSliceDefaultItem {
+    /**
+     * image field in *CardCarousel → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: card_carousel.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Heading field in *CardCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: card_carousel.items[].heading
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    heading: prismicT.KeyTextField;
+    /**
+     * Description field in *CardCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: card_carousel.items[].description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+}
+/**
+ * Default variation for CardCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `CardCarousel`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CardCarouselSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<CardCarouselSliceDefaultItem>>;
+/**
+ * Slice variation for *CardCarousel*
+ *
+ */
+type CardCarouselSliceVariation = CardCarouselSliceDefault;
+/**
+ * CardCarousel Shared Slice
+ *
+ * - **API ID**: `card_carousel`
+ * - **Description**: `CardCarousel`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CardCarouselSlice = prismicT.SharedSlice<"card_carousel", CardCarouselSliceVariation>;
+/**
+ * Primary content in Clients → Primary
+ *
+ */
+interface ClientsSliceDefaultPrimary {
+    /**
+     * Title field in *Clients → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: clients.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Item in Clients → Items
+ *
+ */
+export interface ClientsSliceDefaultItem {
+    /**
+     * Client Image field in *Clients → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: clients.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for Clients Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Clients`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ClientsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ClientsSliceDefaultPrimary>, Simplify<ClientsSliceDefaultItem>>;
+/**
+ * Slice variation for *Clients*
+ *
+ */
+type ClientsSliceVariation = ClientsSliceDefault;
+/**
+ * Clients Shared Slice
+ *
+ * - **API ID**: `clients`
+ * - **Description**: `Clients`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ClientsSlice = prismicT.SharedSlice<"clients", ClientsSliceVariation>;
 /**
  * Primary content in ContactUs → Primary
  *
@@ -519,6 +572,91 @@ type QuoteSliceVariation = QuoteSliceDefault;
  */
 export type QuoteSlice = prismicT.SharedSlice<"quote", QuoteSliceVariation>;
 /**
+ * Primary content in ServicesCarousel → Primary
+ *
+ */
+interface ServicesCarouselSliceDefaultPrimary {
+    /**
+     * Title field in *ServicesCarousel → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: services_carousel.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+}
+/**
+ * Item in ServicesCarousel → Items
+ *
+ */
+export interface ServicesCarouselSliceDefaultItem {
+    /**
+     * IconName field in *ServicesCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: services_carousel.items[].iconname
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    iconname: prismicT.KeyTextField;
+    /**
+     * ServiceName field in *ServicesCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: services_carousel.items[].servicename
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    servicename: prismicT.KeyTextField;
+    /**
+     * ServiceDescription field in *ServicesCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: services_carousel.items[].servicedescription
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    servicedescription: prismicT.KeyTextField;
+    /**
+     * ServiceImage field in *ServicesCarousel → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: services_carousel.items[].serviceimage
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    serviceimage: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for ServicesCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ServicesCarousel`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ServicesCarouselSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ServicesCarouselSliceDefaultPrimary>, Simplify<ServicesCarouselSliceDefaultItem>>;
+/**
+ * Slice variation for *ServicesCarousel*
+ *
+ */
+type ServicesCarouselSliceVariation = ServicesCarouselSliceDefault;
+/**
+ * ServicesCarousel Shared Slice
+ *
+ * - **API ID**: `services_carousel`
+ * - **Description**: `ServicesCarousel`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ServicesCarouselSlice = prismicT.SharedSlice<"services_carousel", ServicesCarouselSliceVariation>;
+/**
  * Primary content in Text → Primary
  *
  */
@@ -839,6 +977,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
+        export type { PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CardCarouselSliceDefaultItem, CardCarouselSliceDefault, CardCarouselSliceVariation, CardCarouselSlice, ClientsSliceDefaultPrimary, ClientsSliceDefaultItem, ClientsSliceDefault, ClientsSliceVariation, ClientsSlice, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, ServicesCarouselSliceDefaultPrimary, ServicesCarouselSliceDefaultItem, ServicesCarouselSliceDefault, ServicesCarouselSliceVariation, ServicesCarouselSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
     }
 }

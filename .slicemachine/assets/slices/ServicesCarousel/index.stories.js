@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/ServicesCarousel';
+
+export default {
+  title: 'slices/ServicesCarousel'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"iconname":"drop","servicename":"provide","servicedescription":"dropped","serviceimage":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72"}}],"primary":{"title":[{"type":"heading1","text":"Wrapped","spans":[]}]},"slice_type":"services_carousel","id":"_Default"}} />
+_Default.storyName = ''
