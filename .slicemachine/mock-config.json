@@ -137,6 +137,16 @@
       }
     },
     "navigation": {},
-    "settings": {}
+    "settings": {},
+    "footer": {
+      "firstColumnTitle": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "links": {},
+      "otherlinks": {}
+    }
   }
 }

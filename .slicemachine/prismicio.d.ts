@@ -6,6 +6,137 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Footer documents */
+interface FooterDocumentData {
+    /**
+     * logo field in *Footer*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.logo
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
+    /**
+     * Column 1 field in *Footer*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Left Side Text
+     * - **API ID Path**: footer.firstColumnTitle
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    firstColumnTitle: prismicT.RichTextField;
+    /**
+     * Links field in *Footer*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.links[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    links: prismicT.GroupField<Simplify<FooterDocumentDataLinksItem>>;
+    /**
+     * Column 2 field in *Footer*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.headerSecond
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    headerSecond: prismicT.KeyTextField;
+    /**
+     * Links field in *Footer*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.otherlinks[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    otherlinks: prismicT.GroupField<Simplify<FooterDocumentDataOtherlinksItem>>;
+    /**
+     * Copyright field in *Footer*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.copyright
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    copyright: prismicT.KeyTextField;
+}
+/**
+ * Item in Footer → Links
+ *
+ */
+export interface FooterDocumentDataLinksItem {
+    /**
+     * label field in *Footer → Links*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.links[].label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    label: prismicT.KeyTextField;
+    /**
+     * Link field in *Footer → Links*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: Link for navigation item
+     * - **API ID Path**: footer.links[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Item in Footer → Links
+ *
+ */
+export interface FooterDocumentDataOtherlinksItem {
+    /**
+     * label field in *Footer → Links*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.otherlinks[].label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    label: prismicT.KeyTextField;
+    /**
+     * Link field in *Footer → Links*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: Link for navigation item
+     * - **API ID Path**: footer.otherlinks[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for Page documents */
 interface PageDocumentData {
     /**
@@ -46,7 +177,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice | IconTextSlice | ContactUsSlice | UserProfileSlice | VideoSlice | CardCarouselSlice | ClientsSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice | IconTextSlice | ContactUsSlice | UserProfileSlice | VideoSlice | CardCarouselSlice | ClientsSlice | ServicesCarouselSlice;
 /**
  * Page document from Prismic
  *
@@ -81,7 +212,7 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes = FooterDocument | PageDocument | SettingsDocument;
 /**
  * Item in CardCarousel → Items
  *
@@ -977,6 +1108,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CardCarouselSliceDefaultItem, CardCarouselSliceDefault, CardCarouselSliceVariation, CardCarouselSlice, ClientsSliceDefaultPrimary, ClientsSliceDefaultItem, ClientsSliceDefault, ClientsSliceVariation, ClientsSlice, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, ServicesCarouselSliceDefaultPrimary, ServicesCarouselSliceDefaultItem, ServicesCarouselSliceDefault, ServicesCarouselSliceVariation, ServicesCarouselSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
+        export type { FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataOtherlinksItem, FooterDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CardCarouselSliceDefaultItem, CardCarouselSliceDefault, CardCarouselSliceVariation, CardCarouselSlice, ClientsSliceDefaultPrimary, ClientsSliceDefaultItem, ClientsSliceDefault, ClientsSliceVariation, ClientsSlice, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, ServicesCarouselSliceDefaultPrimary, ServicesCarouselSliceDefaultItem, ServicesCarouselSliceDefault, ServicesCarouselSliceVariation, ServicesCarouselSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
     }
 }
