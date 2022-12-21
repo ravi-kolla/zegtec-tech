@@ -20,6 +20,9 @@ font-style: normal;
 .lilac-color {
   color: #E2B8E0;
 }
+.border-lilac-color {
+  border-color: #E2B8E0;
+}
 .ink-color {
   color: #333333;
 }
@@ -28,6 +31,9 @@ font-style: normal;
 }
 .cloud-color {
   color: #DAE0F2;
+}
+.blue-brand {
+  color: #c6aaf5;
 }
 .eggshell-color {
   color: #F6F5F0;
@@ -171,7 +177,7 @@ p {
 .slider .slide-track {
   animation: clients-scroll 40s linear infinite;
   display: flex;
-  width: calc(250px * 14);
+  width: calc(250px * 5);
 }
 .slider .slide {
   height: 100px;
