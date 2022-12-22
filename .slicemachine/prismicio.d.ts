@@ -436,6 +436,65 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
 /**
+ * Item in HeroCarousel → Items
+ *
+ */
+export interface HeroCarouselSliceDefaultItem {
+    /**
+     * Hero field in *HeroCarousel → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero_carousel.items[].hero
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    hero: prismicT.ImageField<never>;
+    /**
+     * Heading field in *HeroCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero_carousel.items[].heading
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    heading: prismicT.KeyTextField;
+    /**
+     * Description field in *HeroCarousel → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero_carousel.items[].description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+}
+/**
+ * Default variation for HeroCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `HeroCarousel`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroCarouselSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<HeroCarouselSliceDefaultItem>>;
+/**
+ * Slice variation for *HeroCarousel*
+ *
+ */
+type HeroCarouselSliceVariation = HeroCarouselSliceDefault;
+/**
+ * HeroCarousel Shared Slice
+ *
+ * - **API ID**: `hero_carousel`
+ * - **Description**: `HeroCarousel`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroCarouselSlice = prismicT.SharedSlice<"hero_carousel", HeroCarouselSliceVariation>;
+/**
  * Item in IconText → Items
  *
  */
@@ -1108,6 +1167,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataOtherlinksItem, FooterDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CardCarouselSliceDefaultItem, CardCarouselSliceDefault, CardCarouselSliceVariation, CardCarouselSlice, ClientsSliceDefaultPrimary, ClientsSliceDefaultItem, ClientsSliceDefault, ClientsSliceVariation, ClientsSlice, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, ServicesCarouselSliceDefaultPrimary, ServicesCarouselSliceDefaultItem, ServicesCarouselSliceDefault, ServicesCarouselSliceVariation, ServicesCarouselSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
+        export type { FooterDocumentData, FooterDocumentDataLinksItem, FooterDocumentDataOtherlinksItem, FooterDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CardCarouselSliceDefaultItem, CardCarouselSliceDefault, CardCarouselSliceVariation, CardCarouselSlice, ClientsSliceDefaultPrimary, ClientsSliceDefaultItem, ClientsSliceDefault, ClientsSliceVariation, ClientsSlice, ContactUsSliceDefaultPrimary, ContactUsSliceDefault, ContactUsSliceVariation, ContactUsSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, HeroCarouselSliceDefaultItem, HeroCarouselSliceDefault, HeroCarouselSliceVariation, HeroCarouselSlice, IconTextSliceDefaultItem, IconTextSliceDefault, IconTextSliceVariation, IconTextSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBannerPrimary, ImageSliceBanner, ImageSliceVariation, ImageSlice, ImageCardsSliceDefaultPrimary, ImageCardsSliceDefaultItem, ImageCardsSliceDefault, ImageCardsSliceVariation, ImageCardsSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, ServicesCarouselSliceDefaultPrimary, ServicesCarouselSliceDefaultItem, ServicesCarouselSliceDefault, ServicesCarouselSliceVariation, ServicesCarouselSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceTwoColumnsPrimary, TextSliceTwoColumns, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceWithButtonPrimary, TextWithImageSliceWithButton, TextWithImageSliceVariation, TextWithImageSlice, UserProfileSliceDefaultItem, UserProfileSliceDefault, UserProfileSliceVariation, UserProfileSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
     }
 }

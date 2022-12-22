@@ -6,8 +6,8 @@ export const Footer = ({ footer, settings }) => {
   console.log(footer.data.links);
   console.log(footer.data.otherlinks);
   return (
-    <div class="pt-5 border-t-4 border-lilac-color">
-       <div class="sh-lilac shadow-xl max-w-screen-lg px-4 sm:px-6 text-gray-800 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
+    <div class="pt-5 footer-shadow">
+       <div class="sh-lilac  max-w-screen-lg px-4 sm:px-6 text-gray-800 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
          <div class="p-5">
          <PrismicLink href="/" className="pt-2 text-xl font-semibold tracking-tight max-h-52">
            <PrismicNextImage field={footer.data.logo}/>
@@ -34,8 +34,8 @@ export const Footer = ({ footer, settings }) => {
           </div>
        </div>
        <div class="pt-2">
-          <div class="flex pb-5 px-3 m-auto pt-5 text-gray-800 text-sm flex-col max-w-screen-lg items-center">
-             <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
+       <div class="flex pb-5 px-3 m-auto pt-5 border-t text-gray-800 text-sm flex-col max-w-screen-lg items-center">
+          <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
                 <a href="https://linkedin.com" class="w-6 mx-1"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://twitter.com" class="w-6 mx-1"><i class="fa-brands fa-twitter"></i></a>
              </div>

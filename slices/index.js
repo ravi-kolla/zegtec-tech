@@ -2,7 +2,7 @@
 
 import CardCarousel from './CardCarousel';
 import Clients from './Clients';
-import ContactUs from './ContactUS';
+import ContactUs from './ContactUs';
 import Hero from './Hero';
 import IconText from './IconText';
 import Image from './Image';

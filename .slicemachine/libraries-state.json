@@ -299,6 +299,81 @@
           }
         }
       },
+      "hero_carousel": {
+        "library": "slices",
+        "id": "hero_carousel",
+        "name": "HeroCarousel",
+        "description": "HeroCarousel",
+        "model": {
+          "id": "hero_carousel",
+          "type": "SharedSlice",
+          "name": "HeroCarousel",
+          "description": "HeroCarousel",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "HeroCarousel",
+              "primary": {},
+              "items": {
+                "hero": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Hero",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "heading": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Heading",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "hero": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
+                },
+                "heading": "examine",
+                "description": "club"
+              }
+            ],
+            "primary": {},
+            "slice_type": "hero_carousel"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "icon_text": {
         "library": "slices",
         "id": "icon_text",

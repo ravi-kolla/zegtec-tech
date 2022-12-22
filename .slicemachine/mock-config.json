@@ -125,6 +125,11 @@
       "default": {
         "primary": {}
       }
+    },
+    "HeroCarousel": {
+      "default": {
+        "primary": {}
+      }
     }
   },
   "_cts": {
