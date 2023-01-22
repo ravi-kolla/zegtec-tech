@@ -1,0 +1,77 @@
+{
+  "id": "customer_action",
+  "type": "SharedSlice",
+  "name": "CustomerAction",
+  "description": "CustomerAction",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "CustomerAction",
+      "primary": {
+        "leftsubtext": {
+          "type": "Text",
+          "config": {
+            "label": "LeftSubtext",
+            "placeholder": ""
+          }
+        },
+        "lefttitle": {
+          "type": "Text",
+          "config": {
+            "label": "LeftTitle",
+            "placeholder": ""
+          }
+        },
+        "leftbutton": {
+          "type": "Link",
+          "config": {
+            "label": "LeftButton",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "leftbuttontext": {
+          "type": "Text",
+          "config": {
+            "label": "LeftButtonText",
+            "placeholder": ""
+          }
+        },
+        "rightsubtext": {
+          "type": "Text",
+          "config": {
+            "label": "RightSubtext",
+            "placeholder": ""
+          }
+        },
+        "righttitle": {
+          "type": "Text",
+          "config": {
+            "label": "RightTitle",
+            "placeholder": ""
+          }
+        },
+        "rightbutton": {
+          "type": "Link",
+          "config": {
+            "label": "RightButton",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "rightbuttontext": {
+          "type": "Text",
+          "config": {
+            "label": "RightButtonText",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}
