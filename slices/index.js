@@ -2,11 +2,14 @@
 
 import CardCarousel from './CardCarousel';
 import Clients from './Clients';
-import ContactUs from './ContactUs';
+import ContactUs from './ContactUS';
+import CustomerAction from './CustomerAction';
 import Hero from './Hero';
+import HeroCarousel from './HeroCarousel';
 import IconText from './IconText';
 import Image from './Image';
 import ImageCards from './ImageCards';
+import PostResume from './PostResume';
 import Quote from './Quote';
 import ServicesCarousel from './ServicesCarousel';
 import Text from './Text';
@@ -18,10 +21,13 @@ export {
 	CardCarousel,
 	Clients,
 	ContactUs,
+	CustomerAction,
 	Hero,
+	HeroCarousel,
 	IconText,
 	Image,
 	ImageCards,
+	PostResume,
 	Quote,
 	ServicesCarousel,
 	Text,
@@ -34,10 +40,13 @@ export const components = {
 	card_carousel: CardCarousel,
 	clients: Clients,
 	contact_us: ContactUs,
+	customer_action: CustomerAction,
 	hero: Hero,
+	hero_carousel: HeroCarousel,
 	icon_text: IconText,
 	image: Image,
 	image_cards: ImageCards,
+	post_resume: PostResume,
 	quote: Quote,
 	services_carousel: ServicesCarousel,
 	text: Text,

@@ -26,11 +26,17 @@ font-style: normal;
 .ink-color {
   color: #333333;
 }
+.border-ink-color {
+  border-color: #333333;
+}
 .lemon-color {
   color: #F8EA65;
 }
 .cloud-color {
   color: #DAE0F2;
+}
+.border-cloud-color {
+  border-color: #DAE0F2;
 }
 .blue-brand {
   color: #c6aaf5;
@@ -79,6 +85,11 @@ h2 {
   font-family: MintageRegular-51Knx;
   font-size:60px;
   font-weight: 400;
+}
+@media only screen and (max-width: 767px) {
+h2 {
+  font-size:48px;
+}
 }
 @media only screen and (max-width: 767px) {
 .mobile-h2 {
@@ -264,5 +275,109 @@ p {
   }
   .right-arrow {
       right: 12px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .CAbox-right {
+      left: 250px;
+  }
+}
+.CAbox-right .CAbox-innerBlock {
+  transform-origin: center right;
+}
+.CAbox-left {
+  z-index: 3;
+}
+.CAbox-innerBlock {
+    background-color: inherit;
+    height: 100%;
+    position: absolute;
+}
+@media only screen and (min-width: 768px){
+  .CAbox-innerBlock {
+    width: 185px;
+    transform: skewX(-20deg);
+  }
+}
+.CAbox-left .CAbox-innerBlock {
+    top: 0;
+    left: auto;
+    right: -91px;
+    transform-origin: center left;
+}
+.CAbox-right .CAbox-innerBlock {
+    left: -91px;
+}
+@media only screen and (min-width: 768px) {
+  .CAbox {
+      width: calc(100vw - 250px);
+      padding: 56px 40px 60px 68px;
+  }
+  .CAbox-right {
+      top: -20px;
+  }
+  .CAbox-right .CAbox-innerBlock {
+    transform: skewX(-20deg);
+    width: 185px;
+  }
+}
+@media only screen and (min-width: 1125px){
+  .CAbox {
+    height: 500px;
+    max-width: 500px
+  }
+  .CAbox-left {
+    margin-right: 95px;
+  }
+  .CAbox-right {
+      left: auto;
+      top: 0px;
+      z-index: 1;
+  }
+  .CAcontainer {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 1150px){
+  .CAbox-left {
+    margin-right: 125px;
+  }
+}
+@media only screen and (max-width: 767px){
+  .customer-action {
+    padding: 15px;
+    position: relative;
+  }
+  .CAbox {
+    padding: 25px 25px 60px;
+    position: relative;
+  }
+  .CAbox-left {
+    margin-bottom: calc((100vw - (15px * 2)) * 0.08748866352);
+  }
+  .CAbox-innerBlock {
+    background-color: inherit;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: skewY(5deg);
+    width: 100%;
+  }
+  .CAbox-left .CAbox-innerBlock {
+    transform-origin: center left;
+    right: 0;
+    height: 20%;
+    top: 81%;
+  }
+  .CAbox-right .CAbox-innerBlock {
+    transform-origin: center right;
+    left: 0;
+    height: 50%
+  }
+}
+@media only screen and (max-width: 515px){
+  .CAbox-left .CAbox-innerBlock {
+    top: 86%;
   }
 }
