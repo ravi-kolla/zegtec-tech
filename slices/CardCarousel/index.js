@@ -1,9 +1,10 @@
 import { Bounded } from "../../components/Bounded";
 import React, { useEffect, useState } from 'react'
+import { PrismicRichText } from "@prismicio/react";
 
 const CardCarousel = ({ slice }) => {
     const {children} = slice.items;
-    let show = 4;
+    let show = 2;
 
     const [windowSize, setWindowSize] = useState(0);
 
@@ -64,8 +65,8 @@ const CardCarousel = ({ slice }) => {
     }
     var carouselCountDisplay;
 
-    if (windowSize.innerWidth <= 1100 && windowSize.innerWidth > 730) {
-      show = 3;
+    if (windowSize.innerWidth <= 1124 && windowSize.innerWidth > 730) {
+      show = 1;
       carouselCountDisplay = `show-${show}`;
     } else if (windowSize.innerWidth <= 730 && windowSize.innerWidth > 0) {
       show = 1;
@@ -75,6 +76,7 @@ const CardCarousel = ({ slice }) => {
     }
     return (
       <Bounded as="section" className="bg-white">
+        <h2>{slice.primary.title}</h2>
         <div className="carousel-container">
             <div className="carousel-wrapper">
 
@@ -94,11 +96,13 @@ const CardCarousel = ({ slice }) => {
                         style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }}
                     >
                         {slice.items.map((item) => (
-                        <div key={item.image.url}>
-                            <div style={{padding: 8}}>
-                                <img src={item.image.url} alt="placeholder" style={{width: '100%', height: '200px'}} />
+                          <div  key={item.image.url} className="cc-card text-white relative flex">
+                            <img className="cc-card-img bg-eggshell-color" src={item.image.url} alt="Card image" />
+                            <div className="cc-card-img-overlay absolute">
+                              <h2 className="cc-card-title ink-color mb-1 px-4">{item.heading}</h2>
+                              <p className="ink-color mb-1 px-4">{item.description}</p>
                             </div>
-                        </div>
+                          </div>
                       ))}
                     </div>
                 </div>

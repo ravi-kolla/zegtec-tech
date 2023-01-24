@@ -136,6 +136,48 @@ p {
 .video-content {
   z-index: 2;
 }
+.video-content .scroll-left {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+}
+.video-content .scroll-left p{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  /* Starting position */
+  -moz-transform:translateX(100%);
+  -webkit-transform:translateX(100%);
+  transform:translateX(100%);
+  /* Apply animation to this element */
+  -moz-animation: scroll-left 20s linear infinite;
+  -webkit-animation: scroll-left 20s linear infinite;
+  animation: scroll-left 20s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+0% { -moz-transform: translateX(100%); }
+100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+0% { -webkit-transform: translateX(100%); }
+100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+0% {
+-moz-transform: translateX(100%); /* Browser bug fix */
+-webkit-transform: translateX(100%); /* Browser bug fix */
+transform: translateX(100%);
+}
+100% {
+-moz-transform: translateX(-100%); /* Browser bug fix */
+-webkit-transform: translateX(-100%); /* Browser bug fix */
+transform: translateX(-100%);
+}
+}
 @media only screen and (max-width: 767px) {
   .video-container-height{
     height: 274px;
@@ -264,10 +306,10 @@ p {
 }
 
 .left-arrow {
-    left: 24px;
+    left: -10px;
 }
 .right-arrow {
-    right: 24px;
+    right: -10px;
 }
 @media only screen and (max-width: 767px) {
   .left-arrow {
@@ -380,4 +422,26 @@ p {
   .CAbox-left .CAbox-innerBlock {
     top: 86%;
   }
+}
+.cc-card {
+  padding: 10px
+}
+.cc-card-img {
+    height: 270px;
+    width: 100%;
+    display: block;
+    border-radius: calc(0.25rem - 1px);
+    opacity: 0.7;
+}
+
+.cc-card-img-overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.cc-card-title {
+  font-size:42px;
 }

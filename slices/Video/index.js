@@ -15,11 +15,13 @@ const Video = ({ slice }) => (
           <PrismicRichText field={slice.primary.title} className="mobile-h2 mb-2"/>
           : ""
         }
+        <div class="scroll-left mb-2">
         {
           slice.primary.description ?
           <PrismicRichText field={slice.primary.description} className="mb-2"/>
           : ""
         }
+        </div>
         <a class="border-2 text-white inline-flex justify-center rounded-lg text-sm py-3 px-4 hover:bg-white/25 hover:ring-slate-900/15 " href={slice.primary.button.url}>{slice.primary.button_text}</a>
     </div>
     </div>
